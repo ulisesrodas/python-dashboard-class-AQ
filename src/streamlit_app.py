@@ -32,7 +32,7 @@ The data generating process is illustrated by the DAG further down below.
                 seed = st.number_input("Random seed", min_value=0, max_value=9999, value=42, step=1)
                 n_samples = st.slider("Sample size", min_value=100, max_value=5000, value=1000, step=100)
 
-        @st.cache(allow_output_mutation=True)
+        @st.cache_data
         def load_data(n, seed):
                 data = generate_data(n=n, seed=seed)
                 results, results_data = execute_regressions(data)
