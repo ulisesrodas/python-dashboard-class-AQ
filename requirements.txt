@@ -1,8 +1,8 @@
-numpy
-streamlit
-matplotlib
-plotly
-pandas
-scipy
-ipykernel
-nbformat
+numpy==1.26.4
+streamlit==1.12.0
+matplotlib==3.7.1
+plotly==5.6.0
+pandas==2.2.2
+scipy==1.10.1
+ipykernel==6.4.1
+nbformat==5.1.3
