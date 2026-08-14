@@ -1,3 +1,5 @@
+# Ejecutar en Terminal: pip install pandas plotly
+
 import plotly.graph_objects as go
 import pandas as pd
 

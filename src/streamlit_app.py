@@ -1,3 +1,5 @@
+# Ejecutar en Terminal: pip install pandas plotly
+
 import streamlit as st
 from pathlib import Path
 from estimation import execute_regressions, generate_data
@@ -5,32 +7,32 @@ from plots import get_figure, get_table
 
 st.set_page_config(page_title="Simpson's Paradox", layout="wide")
 
-tab1, tab2, tab3 = st.tabs(["Simpson's Paradox", "Code", "References"])
+tab1, tab2, tab3 = st.tabs(["Paradoja de Simpson", "Código", "Referencias"])
 
 with tab1:
 
         st.markdown(
 """
-# Simpson's Paradox Explained
+# Paradoja de Simpson
 
-Simpson's paradox posits that, when we calculate correlations in aggregated data for a given population, we may find a positive (negative) correlation, but when the data are disaggregated, the correlation may have the opposite sign.
+La paradoja de Simpson establece que, al calcular correlaciones en datos agregados de una población determinada, podemos encontrar una correlación positiva (o negativa), pero al desagregar los datos, la correlación puede presentar el signo opuesto.
 
-In this case, we simulate data such that we have a confounding variable, namely age. If age has an effect both on exercise and cholesterol, not taking it into account when performing our estimation will render us a biased estimator of the correlation between cholesterol and exercise. In this case, the bias is large enough that it reverts the sign: our correlation initially is positive, but when we segregate by age, the correlation is negative.
+En este caso, simulamos datos que incluyen una variable de confusión: la edad. Si la edad influye tanto en el ejercicio como en el colesterol, no tenerla en cuenta al realizar la estimación dará lugar a un estimador sesgado de la correlación entre el colesterol y el ejercicio. Aquí, el sesgo es lo suficientemente grande como para invertir el signo: la correlación inicial es positiva, pero al segmentar los datos por edad, la correlación resulta negativa.
 
-The data generating process is illustrated by the DAG further down below.
+El proceso de generación de datos se ilustra mediante el DAG que aparece más abajo.
 """
         )
         col1, col2 = st.columns([1, 2])
         st.write("---")
 
         with col1:
-                st.markdown("### Options")
-                segregated = st.checkbox(label="Segregate by age")
-                fit_line = st.checkbox(label="Show regression line", value=True)
+                st.markdown("### Opciones")
+                segregated = st.checkbox(label="Segregados por edad")
+                fit_line = st.checkbox(label="Mostrar línea de regresión", value=True)
                 st.write("---")
-                st.markdown("### Data Controls")
-                seed = st.number_input("Random seed", min_value=0, max_value=9999, value=42, step=1)
-                n_samples = st.slider("Sample size", min_value=100, max_value=5000, value=1000, step=100)
+                st.markdown("### Controles de Datos")
+                seed = st.number_input("Semilla aleatoria", min_value=0, max_value=9999, value=42, step=1)
+                n_samples = st.slider("Tamaño de la muestra", min_value=100, max_value=5000, value=1000, step=100)
 
         @st.cache_data
         def load_data(n, seed):
@@ -43,7 +45,7 @@ The data generating process is illustrated by the DAG further down below.
         all_age_groups = sorted(results_data["age_groups"].unique())
         with col1:
                 selected_groups = st.multiselect(
-                        "Age groups to display",
+                        "Grupos de edad",
                         options=all_age_groups,
                         default=all_age_groups
                 )
@@ -62,11 +64,11 @@ The data generating process is illustrated by the DAG further down below.
         table = get_table(filtered_results, segregated)
 
         with col1:
-                st.markdown("### Regression Results")
+                st.markdown("### Resultados de la Regresión")
                 st.table(table)
 
         with col2:
-                st.markdown("### Scatter Plot")
+                st.markdown("### Diagrama de Dispersión")
                 st.plotly_chart(fig, use_container_width=True)
                 st.write("---")
                 st.markdown("### DAG")
@@ -76,8 +78,8 @@ The data generating process is illustrated by the DAG further down below.
                         st.image("assets/aggregated.png")
 
 with tab2:
-        st.markdown("### Code")
-        st.markdown("Our code is hosted in the following GitHub repository: https://github.com/alexanderquispe/python-dashboard-class-AQ")
+        st.markdown("### Código")
+        st.markdown("El código está alojado en el siguiente repositorio de GitHub: https://github.com/alexanderquispe/python-dashboard-class-AQ")
         st.write("---")
 
         src_dir = Path(__file__).parent
@@ -93,7 +95,7 @@ with tab2:
 
 with tab3:
         st.markdown("""
-### References:
+### Referencias:
 
 Glymour, Madelyn, Judea Pearl, and Nicholas P. Jewell. Causal inference in statistics: A primer. John Wiley & Sons, 2016.
 """
