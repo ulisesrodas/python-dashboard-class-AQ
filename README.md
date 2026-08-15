@@ -20,9 +20,10 @@ Para asegurar que el proyecto funcione en distintas computadoras y sistemas oper
 
 ## Paso a paso para ejecutar el proyecto
 
-Una vez instaladas las librerías, ejecutamos los siguientes comandos en la terminal de VS Code:
+Una vez instaladas las librerías, ejecutamos los siguientes comandos en la Terminal de VS Code:
 * `python src\plots.py` (o con `/` si estás en Mac/Linux): Procesará los datos iniciales y construirá la carpeta assets con las imágenes para que el dashboard no se quede ciego.
 * `streamlit run src\streamlit_app.py`: Comando final que levanta el servidor y abre la interfaz web en tu navegador.
+* `Control + c`: Cerramos la ejecución del dashboard en el navegador, quedando así el Terminal libre.
 ---
 
 ## Referencias
