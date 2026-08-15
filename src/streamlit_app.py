@@ -1,5 +1,3 @@
-# Ejecutar en Terminal: pip install pandas plotly
-
 import streamlit as st
 from pathlib import Path
 from estimation import execute_regressions, generate_data
@@ -9,6 +7,7 @@ st.set_page_config(page_title="Simpson's Paradox", layout="wide")
 
 tab1, tab2, tab3 = st.tabs(["Paradoja de Simpson", "Código", "Referencias"])
 
+# Relleno de información al tab1:
 with tab1:
 
         st.markdown(

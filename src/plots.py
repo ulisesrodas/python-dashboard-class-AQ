@@ -1,13 +1,12 @@
-# Ejecutar en Terminal: pip install pandas plotly
-
 import plotly.graph_objects as go
 import pandas as pd
 
+# Creación de la figura: scatter, en este caso
 def get_figure(plot_data, segregated, fit_line):
         fig = go.Figure(layout = go.Layout(width=900))
         fig.update_layout(
-                xaxis_title="Exercise (hours/week)",
-                yaxis_title="Cholesterol (mg/dL)"
+                xaxis_title="Ejercicios (horas/semana)",
+                yaxis_title="Colesterol (mg/dL)"
         )
         if not segregated:
                 fig.add_trace(go.Scatter(
@@ -77,6 +76,7 @@ def get_figure(plot_data, segregated, fit_line):
                         ))
         return fig
 
+# Creación de la tabla de resultados según la regresión que hagamos
 def get_table(results: dict[str, dict], segregated):
         if not segregated:
                 results = results["aggregated"]
