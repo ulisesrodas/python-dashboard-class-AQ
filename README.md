@@ -8,8 +8,8 @@ Este dashboard está basado en el dashboard realizado por [Bach and Tan](https:/
 
 Este proyecto está configurado para ejecutarse en cualquier entorno local de manera sencilla utilizando el módulo nativo de Python para crear **entornos virtuales** (`venv`), por lo que no es necesario instalar Anaconda. Seguimos estos pasos:
 * Nos aseguramos de tener desactivado (o no tener) Anaconda.
-* Nos dirigimos a la carpeta base del proyecto, no en la carpeta src donde están los archivos.
-* En el terminal de VS Code, creamos un entorno virtual: `py -m venv streamlit`
+* Los archivos clave están en la carpeta `src`, pero la Terminal del VS Code debe estar en la carpeta base
+* En el Terminal, creamos un entorno virtual llamado streamlit:  `-m venv streamlit`
 * Activarlo:
   * Windows: `.\streamlit\Scripts\activate`
   * Mac/Linux: `source streamlit/bin/activate`
